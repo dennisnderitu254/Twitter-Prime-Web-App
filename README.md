@@ -23,29 +23,62 @@ Application structure
 
 **Layout**
 
+[FollowBar.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/FollowBar.tsx)
+
+[Imagecomponent.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/Imagecomponent.tsx)
+
+[Sidebar.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/Sidebar.tsx)
+
+[SidebarItem.tsx]()
+
+[SidebarLogo.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarItem.tsx)
+
+[SidebarTweetButton.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarTweetButton.tsx)
+
 **modals**
+
+[EditModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/EditModal.tsx)
+
+[LoginModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/LoginModal.tsx)
+
+[RegisterModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/RegisterModal.tsx)
 
 **posts**
 
+[CommentFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/CommentFeed.tsx)
+
+[CommentItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/CommentItem.tsx)
+
+[PostFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostFeed.tsx)
+
+[PostItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostItem.tsx)
+
 **users**
 
-[Avatar.tsx]()
+[UserBio.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/users/UserBio.tsx)
 
-[Button.tsx]()
+[UserHero.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/users/UserHero.tsx)
 
-[Form.tsx]()
 
-[Header.tsx]()
+---------------------------------------------
 
-[ImageUpload.tsx]()
+[Avatar.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Avatar.tsx)
 
-[Input.tsx]()
+[Button.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Button.tsx)
 
-[Layout.tsx]()
+[Form.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Form.tsx)
 
-[Modal.tsx]()
+[Header.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Header.tsx)
 
-[NotificationsFeed.tsx]()
+[ImageUpload.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/ImageUpload.tsx)
+
+[Input.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Input.tsx)
+
+[Layout.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Layout.tsx)
+
+[Modal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/Modal.tsx)
+
+[NotificationsFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/NotificationsFeed.tsx)
 
 
 
@@ -73,10 +106,19 @@ Application structure
 
 [useUsers.ts]()
 
-`libs`
+## `libs`
 
-`pages`
+[fetcher.ts]()
 
-`prisma`
+[prismadb.ts]()
 
-`public`
+[serverAuth.ts]()
+
+## `pages`
+
+
+
+## `prisma`
+
+
+## `public`
