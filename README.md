@@ -21,13 +21,87 @@ Application structure
 
 ## `components`
 
+`Twitter-Prime-Web-App/components/layout`
+
 **Layout**
 
 [FollowBar.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/FollowBar.tsx)
 
+the FollowBar component is the way to display Twitter users for following. It utilizes the useUsers hook to fetch the relevant data and renders a visually appealing and user-friendly interface.
+
 [Imagecomponent.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/Imagecomponent.tsx)
 
+The MyMap component successfully renders the twitterprime.png image using the next/image component. It ensures proper image loading and applies styling for a rounded, responsive image.
+
 [Sidebar.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/Sidebar.tsx)
+
+`The Sidebar Component` enders the main navigation sidebar for a Twitter-like application. It utilizes the useCurrentUser hook to fetch the current user's information and dynamically displays navigation items based on user authentication.
+
+`Fetching Current User Data:`
+```
+const { data: currentUser } = useCurrentUser();
+```
+This line destructures the data property from the useCurrentUser hook and assigns it to a currentUser variable. This variable will be used to determine which navigation items to display based on user authentication.
+
+`Defining Sidebar Items:`
+
+```
+const items = [
+  {
+    icon: BsHouseFill,
+    label: 'Home',
+    href: '/',
+  },
+  {
+    icon: BsBellFill,
+    label: 'Notifications',
+    href: '/notifications',
+    auth: true,
+    alert: currentUser?.hasNotification,
+  },
+  {
+    icon: FaUser,
+    label: 'Profile',
+    href: `/users/${currentUser?.id}`,
+    auth: true,
+  },
+];
+```
+This code defines an array of sidebar items with their respective icons, labels, and hrefs (links). The auth property indicates whether the item should only be displayed if the user is authenticated. The alert property is used to indicate whether the notification icon should have an orange alert dot.
+
+`Rendering Sidebar Items:`
+
+```
+{items.map((item) => (
+  <SidebarItem
+    key={item.href}
+    alert={item.alert}
+    auth={item.auth}
+    href={item.href}
+    icon={item.icon}
+    label={item.label}
+  />
+))}
+```
+
+This code iterates over the items array and renders a SidebarItem component for each item. It passes the item's properties to the SidebarItem component to dynamically render the icon, label, and link.
+
+`Sign Out Button:`
+
+```
+{currentUser && <SidebarItem onClick={() => signOut()} icon={BiLogOut} label="Logout" />}
+```
+
+This conditional rendering displays a SidebarItem component with a logout icon and label if the currentUser exists. When clicked, it triggers the signOut function from next-auth/react to initiate the sign-out process.
+
+`Post Button:`
+
+```
+<SidebarTweetButton />
+```
+
+Displays the tweet button
+
 
 [SidebarItem.tsx]()
 
@@ -170,7 +244,4 @@ Application structure
 [search.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/search.tsx)
 
 ---------------------------------------------------------------------------------------------------------
-## `prisma`
 
-
-## `public`
