@@ -432,8 +432,79 @@ const bodyContent = (
 
 - The bodyContent constant defines the content of the modal body, which includes two Input fields for email and password.
 
-
 [RegisterModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/RegisterModal.tsx)
+
+`Modal State Management:`
+
+```
+const registerModal = useRegisterModal();
+```
+
+- The useRegisterModal hook is used to access the modal state variable, indicating whether the register modal is open or closed.
+
+`Form State Management:`
+
+```
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [username, setUsername] = useState('');
+const [name, setName] = useState('');
+const [isLoading, setIsLoading] = useState(false);
+```
+
+- The useState hook is used to manage the state of the form fields (email, password, username, name) and the isLoading flag indicating whether the form is submitting.
+
+`Switching to Login Modal:`
+
+```
+const onToggle = useCallback(() => {
+  if (isLoading) {
+    return;
+  }
+
+  registerModal.onClose();
+  loginModal.onOpen();
+}, [loginModal, registerModal, isLoading]);
+```
+
+- The onToggle function is used to switch from the register modal to the login modal. It checks if the form is submitting and prevents switching if so.
+ it also closes the register modal and opens the login modal using the respective hooks.
+
+`Registration and Sign-in Handling:`
+
+```
+const onSubmit = useCallback(async () => {
+  try {
+    setIsLoading(true);
+
+    await axios.post('/api/register', {
+      email,
+      password,
+      username,
+      name,
+    });
+
+    setIsLoading(false);
+
+    toast.success('Account created.');
+
+    await signIn('credentials', {
+      email,
+      password,
+    });
+
+    registerModal.onClose();
+  } catch (error) {
+    toast.error('Something went wrong');
+  } finally {
+    setIsLoading(false);
+  }
+}, [email, password, registerModal, username, name]);
+```
+
+- The onSubmit function is used to handle form submission. It attempts to register a new user by making a POST request to the /api/register endpoint. Upon successful registration, it displays a success toast, automatically signs in the user using their credentials, closes the modal, and sets the loading state appropriately.
+
+
 
 **posts**
 
