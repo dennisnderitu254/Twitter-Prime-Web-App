@@ -620,7 +620,68 @@ export default PostFeed;
 
 [PostFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostFeed.tsx)
 
+`usePosts Custom Hook:`
 
+```
+import usePosts from '@/hooks/usePosts';
+```
+
+- This line imports the usePosts custom hook from the hooks directory. This hook is likely responsible for fetching posts from the server, either for all users or for a specific user based on the provided userId prop.
+
+`PostItem Component:`
+
+```
+import PostItem from './PostItem';
+```
+- This line imports the PostItem component, presumably defined in a separate file. This component is likely responsible for rendering individual posts in the feed.
+
+`Component Definition:`
+
+```
+const PostFeed: React.FC<PostFeedProps> = ({ userId }) => {
+```
+
+- This line defines a functional component named PostFeed that takes an optional userId prop. The userId prop is used to filter the posts to display only those from the specified user.
+
+`Fetching Posts:`
+
+```
+const { data: posts = [] } = usePosts(userId);
+```
+
+- This line calls the usePosts hook to fetch posts based on the provided userId. The data property from the hook is destructured and stored in the posts variable. The default value of an empty array is provided in case no posts are returned.
+
+`Mapping Posts:`
+
+```
+{posts.map((post: Record<string, any>,) => (
+```
+
+- This line iterates over the posts array and renders a PostItem component for each post. The post object is passed as a prop to the PostItem component.
+
+`Dynamic Keys:`
+
+```
+<PostItem userId={userId} key={post.id} data={post} />
+```
+
+- The key prop is set to the id of the post. This ensures that each PostItem component has a unique key, which is important for React to efficiently update the DOM when the posts data changes.
+
+`Returning JSX:`
+
+```
+<>
+```
+
+- This line returns an empty fragment (<>) to wrap the rendered PostItem components.
+
+`Exporting Component:`
+
+```
+export default PostFeed;
+```
+
+- This line exports the PostFeed component so that it can be imported and used in other modules.
 
 [PostItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostItem.tsx)
 
