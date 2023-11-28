@@ -103,7 +103,59 @@ This conditional rendering displays a SidebarItem component with a logout icon a
 Displays the tweet button
 
 
-[SidebarItem.tsx]()
+[SidebarItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarItem.tsx)
+
+`SidebarItem` - renders a clickable sidebar item with an icon, label, and optional alert indicator.
+
+The `useRouter` is used  to handle navigation and the `useLoginModal` hook to open the login modal if the item requires authentication and the user is not logged in.
+
+`icons and Labels`
+
+```
+<div className="flex flex-row items-center">
+  <div className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden">
+    <Icon size={28} color="white" />
+    {alert ? <BsDot className="text-sky-500 absolute -top-4 left-0" size={70} /> : null}
+  </div>
+  <div className="relative hidden lg:flex items-row gap-4 p-4 rounded-full hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer items-center">
+    <Icon size={24} color="white" />
+    <p className="hidden lg:block text-white text-xl">
+      {label}
+    </p>
+    {alert ? <BsDot className="text-sky-500 absolute -top-4 left-0" size={70} /> : null}
+  </div>
+</div>
+```
+
+- This code renders two div elements, one for small screens (hidden on large screens) and one for large screens (hidden on small screens). Each div contains an Icon component with the appropriate size and color, and a p element for the label. The optional alert indicator is rendered as a BsDot icon if the alert prop is true.
+
+`Click Handling:`
+
+```
+const handleClick = useCallback(() => {
+  if (onClick) {
+    return onClick();
+  }
+
+  if (auth && !currentUser) {
+    loginModal.onOpen();
+  } else if (href) {
+    router.push(href);
+  }
+}, [router, href, auth, loginModal, onClick, currentUser]);
+```
+
+- This useCallback hook defines the handleClick function, which is used as the onClick handler for the sidebar item. It first checks if the onClick prop exists and calls it if so. Otherwise, it checks if the item requires authentication and the user is not logged in. If so, it opens the login modal using the loginModal.onOpen() function. Finally, if the item has a href prop, it uses the router.push() function to navigate to the specified URL.
+
+`Component Export:`
+
+```
+export default SidebarItem;
+```
+
+
+
+
 
 [SidebarLogo.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarItem.tsx)
 
