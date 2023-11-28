@@ -288,11 +288,71 @@ export default SidebarshareButton;
 
 - This line exports the SidebarshareButton component, making it available for use in other React components.
 
+### `Twitter-Prime-Web-App/components/modals/`
+
 **modals**
 
 [EditModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/EditModal.tsx)
 
+`Fetching Current User Data:`
+
+```
+const { data: currentUser } = useCurrentUser();
+```
+
+- The useCurrentUser hook is used to fetch the current user's information. This data is stored in the currentUser state variable.
+
+`Initial Form State:`
+
+```
+useEffect(() => {
+  if (currentUser) {
+    setProfileImage(currentUser?.profileImage);
+    setCoverImage(currentUser?.coverImage);
+    setName(currentUser?.name);
+    setUsername(currentUser?.username);
+    setBio(currentUser?.bio);
+  }
+}, [currentUser]);
+```
+
+- The useEffect hook sets the initial state of the form fields based on the fetched user data.
+
+`State Management:`
+
+```
+const [profileImage, setProfileImage] = useState('');
+const [coverImage, setCoverImage] = useState('');
+const [name, setName] = useState('');
+const [username, setUsername] = useState('');
+const [bio, setBio] = useState('');
+```
+- The useState hook is used to manage the state of the form fields. Each field has its corresponding state variable, such as profileImage for the profile image URL.
+
+`Form Submission Handling:`
+
+```
+const onSubmit = useCallback(async () => {
+  try {
+    setIsLoading(true);
+
+    await axios.patch('/api/edit', { name, username, bio, profileImage, coverImage });
+    mutateFetchedUser();
+    toast.success('Updated');
+    editModal.onClose();
+  } catch (error) {
+    toast.error('Something went wrong');
+  } finally {
+    setIsLoading(false);
+  }
+}, [editModal, name, username, bio, mutateFetchedUser, profileImage, coverImage]);
+```
+- The onSubmit function is used to handle form submission. It makes a PATCH request to the /api/edit endpoint with the updated user data. Upon successful submission, it updates the cached user data, displays a success toast, and closes the modal.
+
+
 [LoginModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/LoginModal.tsx)
+
+
 
 [RegisterModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/RegisterModal.tsx)
 
