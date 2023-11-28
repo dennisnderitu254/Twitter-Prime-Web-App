@@ -80,44 +80,96 @@ Application structure
 
 [NotificationsFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/NotificationsFeed.tsx)
 
-
-
 ## `hooks`
 
-[useCurrentUser.ts]()
+[useCurrentUser.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useCurrentUser.ts)
 
-[useEditModal.ts]()
+[useEditModal.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useEditModal.ts)
 
-[useFollow.ts]()
+[useFollow.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useFollow.ts)
 
-[useLike.ts]()
+[useLike.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useLike.ts)
 
-[useLoginModal]()
+[useLoginModal](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useLoginModal.ts)
 
-[useNotifications.ts]()
+[useNotifications.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useNotifications.ts)
 
-[usePost.ts]()
+[usePost.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/usePost.ts)
 
-[usePosts.ts]()
+[usePosts.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/usePosts.ts)
 
-[useRegisterModal.ts]()
+[useRegisterModal.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useRegisterModal.ts)
 
-[useUser.ts]()
+[useUser.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useUser.ts)
 
-[useUsers.ts]()
+[useUsers.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/hooks/useUsers.ts)
 
 ## `libs`
 
-[fetcher.ts]()
+[fetcher.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/libs/fetcher.ts)
 
-[prismadb.ts]()
+[prismadb.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/libs/prismadb.ts)
 
-[serverAuth.ts]()
+[serverAuth.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/libs/serverAuth.ts)
 
 ## `pages`
 
+**api**
+
+`api/auth`
+
+[[...nextauth].ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/auth/%5B...nextauth%5D.ts)
+
+`api/notifications`
+
+[[userId].ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/notifications/%5BuserId%5D.ts)
+
+`api/posts`
+
+[[postId].ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/posts/%5BpostId%5D.ts)
+
+[index.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/posts/index.ts)
+
+`api/users`
+
+[[userId].ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/users/%5BuserId%5D.ts)
+
+[index.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/users/index.ts)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+[comments.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/comments.ts)
+
+[current.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/current.ts)
+
+[edit.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/edit.ts)
+
+[follow.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/follow.ts)
+
+[like.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/like.ts)
+
+[register.ts](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/api/register.ts)
+
+**posts**
+
+[[postId].tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/posts/%5BpostId%5D.tsx)
 
 
+**users**
+
+[[userId].tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/users/%5BuserId%5D.tsx)
+
+
+[_app.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/_app.tsx)
+
+
+[index.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/index.tsx)
+
+[notifications.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/notifications.tsx)
+
+[search.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/pages/search.tsx)
+
+---------------------------------------------------------------------------------------------------------
 ## `prisma`
 
 
