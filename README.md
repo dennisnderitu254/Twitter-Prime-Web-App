@@ -35,7 +35,7 @@ The MyMap component successfully renders the twitterprime.png image using the ne
 
 [Sidebar.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/Sidebar.tsx)
 
-`The Sidebar Component` enders the main navigation sidebar for a Twitter-like application. It utilizes the useCurrentUser hook to fetch the current user's information and dynamically displays navigation items based on user authentication.
+`The Sidebar Component` sets up the main navigation sidebar for a Twitter-like application. It utilizes the useCurrentUser hook to fetch the current user's information and dynamically displays navigation items based on user authentication.
 
 `Fetching Current User Data:`
 ```
