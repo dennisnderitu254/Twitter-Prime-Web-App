@@ -153,11 +153,65 @@ const handleClick = useCallback(() => {
 export default SidebarItem;
 ```
 
-
-
-
-
 [SidebarLogo.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarItem.tsx)
+
+`useRouter from next/router:`
+
+```
+import { useRouter } from "next/router";
+```
+- This line imports the useRouter hook from the next/router package. This hook provides access to the current router object, allowing you to navigate between pages and handle routing events.
+
+`BsFillMegaphoneFill from react-icons:`
+
+```
+import { BsFillMegaphoneFill } from "react-icons/bs";
+```
+
+This line imports the BsFillMegaphoneFill icon from the react-icons/bs package. This icon will be used as the visual representation of the sidebar logo.
+
+### `SidebarLogo Component:`
+
+`Router Navigation:`
+
+```
+const router = useRouter();
+
+return (
+  <div
+    onClick={() => router.push('/')}
+    className="
+      rounded-full
+      h-14
+      w-14
+      p-4
+      flex
+      items-center
+      justify-center
+      hover:bg-teal-400
+      hover:bg-opacity-10
+      cursor-pointer
+    ">
+    <BsFillMegaphoneFill size={28} color="white" />
+  </div>
+);
+```
+
+The onClick handler utilizes the router.push() function to redirect the user to the homepage (/) when the logo is clicked.
+
+`Visual Styling:`
+
+The div element is styled using inline CSS classes to achieve the desired visual appearance of the logo.
+
+`Logo Icon:`
+
+The BsFillMegaphoneFill icon is rendered within the div element, using its size and color props to control its appearance.
+
+`Component Export:`
+
+This line exports the SidebarLogo component, making it available for use in other React components.
+
+
 
 [SidebarTweetButton.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarTweetButton.tsx)
 
