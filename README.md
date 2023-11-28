@@ -505,14 +505,59 @@ const onSubmit = useCallback(async () => {
 - The onSubmit function is used to handle form submission. It attempts to register a new user by making a POST request to the /api/register endpoint. Upon successful registration, it displays a success toast, automatically signs in the user using their credentials, closes the modal, and sets the loading state appropriately.
 
 
-
+`Twitter-Prime-Web-App/components/posts/`
 **posts**
 
 [CommentFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/CommentFeed.tsx)
 
+`Component Definition:`
+
+```
+const CommentFeed: React.FC<CommentFeedProps> = ({ comments = [] }) => {
+```
+
+- This line defines a functional component named CommentFeed that takes an optional comments prop. The comments prop is an array of objects representing individual comments.
+
+`Mapping Comments:`
+
+```
+{comments.map((comment: Record<string, any>,) => (
+```
+
+- This line iterates over the comments array and renders a CommentItem component for each comment. The comment object is passed as a prop to the CommentItem component.
+
+`Dynamic Keys:`
+
+```
+<CommentItem key={comment.id} data={comment} />
+```
+
+- The key prop is set to the id of the comment. This ensures that each CommentItem component has a unique key, which is important for React to efficiently update the DOM when the comments data changes.
+
+`Returning JSX:`
+
+```
+<>
+```
+
+- This line returns an empty fragment (<>) to wrap the rendered CommentItem components. This is a common practice to group multiple JSX elements without introducing an unnecessary DOM element.
+
+`Exporting Component:`
+
+```
+export default CommentFeed;
+```
+
+- This line exports the CommentFeed component so that it can be imported and used in other modules.
+
+
 [CommentItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/CommentItem.tsx)
 
+
+
 [PostFeed.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostFeed.tsx)
+
+
 
 [PostItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostItem.tsx)
 
