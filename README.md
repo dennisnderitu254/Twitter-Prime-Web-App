@@ -211,9 +211,82 @@ The BsFillMegaphoneFill icon is rendered within the div element, using its size 
 
 This line exports the SidebarLogo component, making it available for use in other React components.
 
-
-
 [SidebarTweetButton.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/layout/SidebarTweetButton.tsx)
+
+`User Authentication Check:`
+
+```
+const onClick = useCallback(() => {
+  if (!currentUser) {
+    return loginModal.onOpen();
+  }
+
+  router.push('/');
+}, [loginModal, router, currentUser]);
+```
+
+- The onClick function is defined using the useCallback hook to ensure efficient re-rendering. It checks if the currentUser exists, indicating whether the user is logged in. If the user is not logged in, it calls the loginModal.onOpen() function to open the login modal. Otherwise, it redirects the user to the homepage (/) using the router.push() function.
+
+`Share Button Rendering:`
+
+```
+return (
+  <div onClick={onClick}>
+    <div className="
+      mt-6
+      lg:hidden
+      rounded-full
+      h-14
+      w-14
+      p-4
+      flex
+      items-center
+      justify-center
+      bg-teal-400
+      hover:bg-opacity-80
+      transition
+      cursor-pointer
+    ">
+      <FaFeather size={24} color="white" />
+    </div>
+    <div className="
+      mt-6
+      hidden
+      lg:block
+      px-4
+      py-2
+      rounded-full
+      bg-teal-400
+      hover:bg-opacity-90
+      cursor-pointer
+    ">
+      <p
+        className="
+          hidden
+          lg:block
+          text-center
+          font-semibold
+          text-white
+          text-[20px]
+        ">
+        Post
+      </p>
+    </div>
+  </div>
+);
+```
+
+- The SidebarshareButton component renders a div element that acts as the clickable container for the share button. The onClick prop of the div element triggers the onClick function.
+
+- Inside the div, there are two nested div elements, one for small screens (hidden on large screens) and one for large screens (hidden on small screens). Both div elements have rounded corners, background color, and hover effects. The small screen div displays the FaFeather icon, and the large screen div displays the text "Post" centered in white.
+
+`Component Export:`
+
+```
+export default SidebarshareButton;
+```
+
+- This line exports the SidebarshareButton component, making it available for use in other React components.
 
 **modals**
 
