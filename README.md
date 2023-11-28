@@ -352,6 +352,85 @@ const onSubmit = useCallback(async () => {
 
 [LoginModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/LoginModal.tsx)
 
+`Modal State Management:`
+
+```
+const loginModal = useLoginModal();
+```
+
+- The useLoginModal hook is used to access the modal state variable, indicating whether the login modal is open or closed.
+
+`Form State Management:`
+
+```
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [isLoading, setIsLoading] = useState(false);
+```
+
+- The useState hook is used to manage the state of the form fields (email, password),
+and the isLoading flag indicating whether the form is submitting.
+
+`Form Submission Handling:`
+
+```
+const onSubmit = useCallback(async () => {
+  try {
+    setIsLoading(true);
+
+    await signIn('credentials', {
+      email,
+      password,
+    });
+
+    toast.success('Logged in');
+
+    loginModal.onClose();
+  } catch (error) {
+    toast.error('Something went wrong');
+  } finally {
+    setIsLoading(false);
+  }
+}, [email, password, loginModal]);
+```
+
+- The onSubmit function is used to handle form submission. It attempts to sign in the user using the provided credentials. Upon successful login, it displays a success toast, closes the modal, and updates the user context.
+
+`Switching to Register Modal:`
+
+```
+const onToggle = useCallback(() => {
+  loginModal.onClose();
+  registerModal.onOpen();
+}, [loginModal, registerModal]);
+```
+
+- The onToggle function is used to switch from the login modal to the register modal.
+It closes the login modal and opens the register modal using the respective hooks.
+
+`Modal Body Content:`
+
+```
+const bodyContent = (
+  <div className="flex flex-col gap-4">
+    <Input
+      placeholder="Email"
+      onChange={(e) => setEmail(e.target.value)}
+      value={email}
+      disabled={isLoading}
+    />
+    <Input
+      placeholder="Password"
+      type="password"
+      onChange={(e) => setPassword(e.target.value)}
+      value={password}
+      disabled={isLoading}
+    />
+  </div>
+);
+```
+
+- The bodyContent constant defines the content of the modal body, which includes two Input fields for email and password.
 
 
 [RegisterModal.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/modals/RegisterModal.tsx)
