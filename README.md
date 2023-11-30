@@ -685,6 +685,81 @@ export default PostFeed;
 
 [PostItem.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/posts/PostItem.tsx)
 
+Importing Libraries
+
+```
+import { useRouter } from 'next/router'; // For routing between pages
+import { useCallback, useMemo } from 'react'; // React hooks for memoization and useCallback
+import { AiFillHeart, AiOutlineHeart, AiOutlineMessage } from 'react-icons/ai'; // Icons for like and comments
+import { formatDistanceToNowStrict } from 'date-fns'; // Date formatting library
+```
+
+Custom Hooks
+
+```
+import useLoginModal from '@/hooks/useLoginModal'; // Hook for opening the login modal
+import useCurrentUser from '@/hooks/useCurrentUser'; // Hook for fetching the current user
+import useLike from '@/hooks/useLike'; // Hook for toggling the like status for a post
+```
+
+`Component Definition`
+
+```
+const PostItem: React.FC<PostItemProps> = ({ data = {}, userId }) => {
+```
+
+This component takes two props: data, which is an object containing the post data, and userId, which is the ID of the current user.
+
+`Component Logic`
+
+`Routing:`
+
+```
+const router = useRouter();
+```
+
+- The useRouter hook is used to get access to the router instance. This is used for routing to the user's profile page (goToUser) and the post detail page (goToPost).
+
+`User Data:`
+
+```
+const { data: currentUser } = useCurrentUser();
+```
+
+- The useCurrentUser hook is used to fetch the current user's data. This is used to check if the user is logged in (onLike).
+
+`Like Handling:`
+
+```
+const { hasLiked, toggleLike } = useLike({ postId: data.id, userId });
+```
+
+- The useLike hook is used to manage the like status for the post. It provides hasLiked, which indicates whether the user has liked the post, and toggleLike, which toggles the like status.
+
+`Like Icon Rendering:`
+
+```
+const LikeIcon = hasLiked ? AiFillHeart : AiOutlineHeart;
+```
+
+- This conditional rendering determines which icon to display for the like button: AiFillHeart if the user has liked the post, or AiOutlineHeart if they haven't.
+
+`Created At Formatting:`
+
+```
+const createdAt = useMemo(() => {
+  if (!data?.createdAt) {
+    return null;
+  }
+
+  return formatDistanceToNowStrict(new Date(data.createdAt));
+}, [data.createdAt]);
+```
+
+- The useMemo hook is used to memoize the createdAt function to avoid unnecessary re-renders. It formats the post's creation date using date-fns.
+
+`JSX Rendering:` - The component returns the JSX for the post item, which includes the user avatar, post content, comment count, and like count.
+
 **users**
 
 [UserBio.tsx](https://github.com/dennisnderitu254/Twitter-Prime-Web-App/blob/main/components/users/UserBio.tsx)
